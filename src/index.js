@@ -2,10 +2,19 @@
 //-r dotenv/config--exprimental-json-modules 
 import dotenv from "dotenv";
 import conectDB from "./db/index.js";
-dotenv.config()
+dotenv.config({path:"./.env"})
 
 conectDB()
+then(()=> {
+    app.listen(process.env.PORT || 8000,()=>{
+        console.log(`server is running on PORT:${process.env.PORT}`);
+    })
 
+    
+})
+.catch((err)=>{
+    console.log(`MongoDB Conection Faild ${err}`)
+})
 
 
 /*import express from "express";
