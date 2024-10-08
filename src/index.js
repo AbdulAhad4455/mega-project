@@ -1,11 +1,13 @@
 //require('dotenv').config({path:"./env"})
 //-r dotenv/config--exprimental-json-modules 
 import dotenv from "dotenv";
+
 import conectDB from "./db/index.js";
+import { app } from "./app.js";
 dotenv.config({path:"./.env"})
 
 conectDB()
-then(()=> {
+.then(()=> {
     app.listen(process.env.PORT || 8000,()=>{
         console.log(`server is running on PORT:${process.env.PORT}`);
     })
